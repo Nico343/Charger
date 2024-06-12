@@ -1,0 +1,252 @@
+:root{
+    /* --bg-color: #ffffff; */
+    --grid-color: black;
+    --cell-bg: #939393;
+    --cell-level: #0bf40a;
+    --font-color: black;
+    --error: red;
+}
+
+body{
+    overflow: hidden;
+    font-family: "Space Mono", monospace;
+    color: var(--font-color);
+    background-color: var(--bg-color);
+    width: 99vw;
+    height: 97vh;
+    padding-top: 1vh;
+}
+
+.container {
+    width: 99%;
+    height: 99%;
+    display: grid;
+    grid-template-columns: 60% 20% 20%;
+    grid-template-rows: 25% 25% 25% 25%;
+    /* background-color: red;     */
+}
+
+.progress-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1%;
+    grid-row: 1/5;
+    grid-column: 1/2;
+    /* border-width: 1vh;
+    border-style: groove;
+    border-color: blue; */
+    /* background-color: red; */
+    margin-right: 15px;
+    /* outline: 5px solid black; */
+}
+
+.progress-bar {
+    width: 100%;
+    height: 33%;
+    border-radius: 20px;
+    background-color: var(--cell-bg);
+    /* background-color: #0101ff; */
+    position: relative;
+    overflow: hidden;
+}
+
+.Cell {
+    height: 100%;
+    background-image: 
+    radial-gradient(10px 10px at 10% 70%, #fff, transparent),
+    radial-gradient(10px 10px at 30% 20%, #fff, transparent),
+    radial-gradient(10px 10px at 20% 10%, #fff, transparent),
+    radial-gradient(10px 10px at 50% 70%, #fff, transparent),
+    radial-gradient(10px 10px at 60% 20%, #fff, transparent),
+    radial-gradient(10px 10px at 40% 80%, #fff, transparent),
+    radial-gradient(10px 10px at 10% 70%, #fff, transparent),
+    radial-gradient(10px 10px at 90% 50%, #fff, transparent),
+    radial-gradient(10px 10px at 80% 10%, #fff, transparent),
+    radial-gradient(10px 10px at 60% 90%, #fff, var(--cell-level));
+    /* linear-gradient(90deg, var(--cell-level) 25px, white 25px, white 50px, var(--cell-level) 50px, var(--cell-level)); */
+    /* background-color: var(--cell-level); */
+    /* border-radius: 20px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    animation: progress 1s linear infinite
+    /* padding: 0 0px; */
+}
+
+@keyframes progress{
+    to{
+        background-position-x: 400px;
+    }
+    from{
+        background-position-x: 40px;
+    }
+}
+
+.Title{
+    grid-row: 1/2;
+    grid-column: 2/3;
+    border-left: 5px solid var(--grid-color);
+    border-bottom: 5px solid var(--grid-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.Console{
+    /* background-color: aqua; */
+    grid-row: 2/3;
+    grid-column: 2/3;
+    border-left: 5px solid var(--grid-color);
+    border-bottom: 5px solid var(--grid-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.Cycles{
+    /* background-color: rgb(0, 85, 255); */
+    grid-row: 3/4;
+    grid-column: 2/3;
+    border-left: 5px solid var(--grid-color);
+    border-bottom: 5px solid var(--grid-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.Temperature{
+    /* background-color: rgb(162, 0, 255); */
+    grid-row: 4/5;
+    grid-column: 2/3;
+    border-left: 5px solid var(--grid-color);
+    display: flex;
+    flex-direction: column;
+
+}
+
+.Pack{
+    /* background-color: rgb(0, 255, 140); */
+    grid-row: 1/2;
+    grid-column: 3/4;
+    border-left: 5px solid var(--grid-color);
+    border-bottom: 5px solid var(--grid-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.Minimum{
+    /* background-color: aqua; */
+    grid-row: 2/3;
+    grid-column: 3/4;
+    border-left: 5px solid var(--grid-color);
+    border-bottom: 5px solid var(--grid-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.Maximum{
+    /* background-color: rgb(0, 85, 255); */
+    grid-row: 3/4;
+    grid-column: 3/4;
+    border-left: 5px solid var(--grid-color);
+    border-bottom: 5px solid var(--grid-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.Deviation{
+    /* background-color: rgb(162, 0, 255); */
+    grid-row: 4/5;
+    grid-column: 3/4;
+    border-left: 5px solid var(--grid-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.Title:hover .t,
+.Console:hover .t,
+.Cycles:hover .t,
+.Temperature:hover .t,
+.Pack:hover .t,
+.Minimum:hover .t,
+.Maximum:hover .t,
+.Deviation:hover .t{
+    padding-top: 26%;
+    padding-bottom: 26.5%;
+    /* font-size: xx-large; */
+    color: white;
+    background-color: black;
+    align-items: center;
+    /* justify-content: center; */
+    transition: padding-top 0.2s, background-color 0.2s, padding-bottom 0.2s;
+}
+
+.Title:active .t,
+.Console:active .t,
+.Cycles:active .t,
+.Temperature:active .t,
+.Pack:active .t,
+.Minimum:active .t,
+.Maximum:active .t,
+.Deviation:active .t{
+    padding-top: 26%;
+    padding-bottom: 26.5%;
+    color: white;
+    background-color: var(--cell-level);
+    align-items: center;
+    /* justify-content: center; */
+    transition: padding-top 0.2s, background-color 0s, padding-bottom 0.2s;
+}
+
+.Title:hover .n,
+.Cycles:hover .n,
+.Temperature:hover .n,
+.Pack:hover .n,
+.Minimum:hover .n,
+.Maximum:hover .n,
+.Deviation:hover .n{
+    color: transparent;
+    transition: color 0.2s;
+}
+
+.Console:hover .e{
+    color: transparent;
+    transition: color 0.2s;
+}
+
+/* .Logo,
+.Console,
+.Cycles,
+.Temperature,
+.Pack,
+.Minimum,
+.Maximum,
+.Deviation{
+
+} */
+
+.t{
+    padding-left: 3%;
+    padding-top: 3%;
+    background-color: white;
+    transition: padding-top 0.5s, background-color 0.5s, padding-bottom 0.5s;
+}
+
+.n{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* justify-content: space-between; */
+    /* align-content: center; */
+    flex:2;
+    /* background-color: black; */
+    font-weight:700;
+    font-size: 2rem;
+    transition: color 0.5s;
+}
+
+.e{
+    padding-left: 3%;
+    padding-top: 3%;
+    color: var(--error);
+    transition: color 0.5s;
+}
